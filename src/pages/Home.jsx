@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../Components/RecipeCard";
-//import useLoading from "../hooks/useLoading";
+
 function Home() {
   const [recipes, setRecipes] = useState([]);
   const [total, setTotal] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading ,setLoading] =useState(true);
- // const { loading, startLoading, stopLoading } = useLoading();
+
 
   async function fetchRecipes(skipCount, query) {
     setLoading();
@@ -33,16 +33,16 @@ function Home() {
   }, []);
 
   function handleSearch(e) {
-    // console.log(e.target);
+    
     e.preventDefault();
 
     const form = new FormData(e.target);
     let query = form.get("query").trim();
     console.log("sfsdf");
     setSearchQuery(query);
-    // if (query) {
+    
     fetchRecipes(0, query);
-    // }
+    
   }
 
   if (errorMsg) {
